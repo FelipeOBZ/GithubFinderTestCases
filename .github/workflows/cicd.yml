@@ -1,18 +1,16 @@
-name: CI - Test GitHubFinder
+name: CI/CD - Deploy React en Vercel
 
 on:
-  push: 
+  push:
     branches:
       - master
-
   pull_request:
     branches:
       - master
-      
+
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: 🛎️ Clonar el repositorio
         uses: actions/checkout@v4
@@ -30,9 +28,23 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: 🚀 Iniciar servidor en segundo plano
-        run: npm run dev & 
+        run: npm run dev &
 
       - name: 🧪 Ejecutar pruebas
         run: npm test
 
-      
+  deploy:
+    needs: test 
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: 📦 Instalar Vercel CLI
+        run: npm install -g vercel
+
+      - name: 🔗 Configurar el proyecto en Vercel (solo la primera vez)
+        run: vercel link --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 🚀 Desplegar en Vercel
+        run: vercel --prod --gitHubFinderTestCases --token=${{ secrets.VERCEL_TOKEN }}
