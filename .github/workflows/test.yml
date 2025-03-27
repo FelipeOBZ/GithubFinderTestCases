@@ -1,0 +1,36 @@
+name: CI - Test GitHubFinder
+
+on:
+  push: 
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+      
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 🎭 Instalar Playwright (para tests e2e)
+        run: npx playwright install --with-deps
+
+      - name: 🧪 Ejecutar pruebas
+        run: npm test
+
+      
