@@ -43,8 +43,5 @@ jobs:
       - name: 📦 Instalar Vercel CLI
         run: npm install -g vercel
 
-      - name: 🔗 Configurar el proyecto en Vercel (solo la primera vez)
-        run: vercel link --yes --token=${{ secrets.VERCEL_TOKEN }}
-
       - name: 🚀 Desplegar en Vercel
-        run: vercel --prod --name=github-finder-test-cases --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel --prod --name=git-hub-finder --token=${{ secrets.VERCEL_TOKEN }}
