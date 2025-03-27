@@ -7,14 +7,16 @@ import { searchUsers } from '../../utils/axios'
 import { AiOutlineOrderedList } from 'react-icons/ai'
 import { BsFillGridFill } from 'react-icons/bs'
 
+export const filterbyType = (userArray) => {
+  return userArray.filter((e) => e.type === 'User')
+}
+
 export default function User() {
   const [userData, setUserData] = useState([])
 
   const [username, setUsername] = useState(null)
 
-  const filterbyType = (userArray) => {
-    return userArray.filter((e) => e.type === 'User')
-  }
+  
 
   useEffect(() => {
     if (username !== null) {
@@ -35,22 +37,22 @@ export default function User() {
       <article>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {userData.length === 1 ? (
-            <h6 className="text-secondary">{userData.length} result</h6>
+            <h6 id="usersCounter" className="text-secondary">{userData.length} result</h6>
           ) : (
-            <h6 className="text-secondary">{userData.length} results</h6>
+            <h6 id="usersCounter" className="text-secondary">{userData.length} results</h6>
           )}
           <div>
-            <button className="btn px-1">
+            <button id="listaCards" className="btn px-1">
               <AiOutlineOrderedList size={20} />
             </button>
-            <button className="btn px-1">
+            <button id="columnasCards" className="btn px-1">
               <BsFillGridFill size={20} />
             </button>
           </div>
         </div>
         {userData.length === 0 ? (
           <div className="row justify-content-center mt-4">
-            <h5 className="text-secondary ">No results found</h5>
+            <h5 id="noResultsFound" className="text-secondary">No results found</h5>
           </div>
         ) : (
           <div className="row">

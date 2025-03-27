@@ -30,7 +30,7 @@ const Search = ({ data, setData, type }) => {
             </div>
           </div>
           <div className="col-md-2 my-3">
-            <button type="submit" className="btn btn-custom-color">
+            <button id="searchButton" type="submit" className="btn btn-custom-color">
               Search user
             </button>
           </div>

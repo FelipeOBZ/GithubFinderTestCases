@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const UserCard = ({ image, username, githubUrl, type }) => {
   return (
     <React.Fragment>
-      <div className="card card-shadow">
+      <div className="card card-shadow userCard" alt="userCardAlt">
         <img src={image} className="img-fluid card-img" alt={username} />
         <div className="card-body">
           <h5 className="card-title text-center">{username}</h5>

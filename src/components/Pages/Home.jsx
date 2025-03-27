@@ -14,9 +14,10 @@ export default function Home() {
         </article>
 
         <article className="row mx-auto">
-          <div className="col-md-6">
+          <div className="col-md-6" >
             <div className="card card-shadow">
               <Link
+                id = "usersSearchButton"
                 to="/users"
                 className="card-body link-card-highlight text-center"
               >
@@ -27,6 +28,7 @@ export default function Home() {
           <div className="col-md-6">
             <div className="card card-shadow">
               <Link
+                id = "orgsSearchButton"
                 to="/orgs"
                 className="card-body link-card-highlight text-center"
               >

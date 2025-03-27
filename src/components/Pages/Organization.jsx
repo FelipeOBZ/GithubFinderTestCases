@@ -8,14 +8,16 @@ import { searchUsers } from '../../utils/axios'
 
 import Search from '../Layouts/Search'
 
+export const filterbyType = (userArray) => {
+  return userArray.filter((e) => e.type === 'Organization')
+}
+
 export default function Organization() {
   const [userData, setUserData] = useState([])
 
   const [username, setUsername] = useState(null)
 
-  const filterbyType = (userArray) => {
-    return userArray.filter((e) => e.type === 'Organization')
-  }
+  
 
   useEffect(() => {
     if (username !== null) {
