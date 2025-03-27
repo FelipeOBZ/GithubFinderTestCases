@@ -26,14 +26,11 @@ jobs:
       - name: 📦 Instalar dependencias
         run: npm install
 
-      - name: 🚀 Iniciar servidor en segundo plano
-        run: npm run dev & 
-
-      - name: ⏳ Esperar a que el servidor esté disponible
-        run: npx wait-on http://localhost:5173
-
       - name: 🎭 Instalar Playwright (para tests e2e)
         run: npx playwright install --with-deps
+
+      - name: 🚀 Iniciar servidor en segundo plano
+        run: npm run dev & 
 
       - name: 🧪 Ejecutar pruebas
         run: npm test
