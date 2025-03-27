@@ -9,7 +9,6 @@ on:
     branches:
       - master
       
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -26,6 +25,12 @@ jobs:
 
       - name: 📦 Instalar dependencias
         run: npm install
+
+      - name: 🚀 Iniciar servidor en segundo plano
+        run: npm run dev & 
+
+      - name: ⏳ Esperar a que el servidor esté disponible
+        run: npx wait-on http://localhost:5173
 
       - name: 🎭 Instalar Playwright (para tests e2e)
         run: npx playwright install --with-deps
