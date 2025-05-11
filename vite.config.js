@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     headers: {
       'Content-Security-Policy':
-        "default-src 'self'; script-src 'self'; object-src 'none';",
+        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none';",
       'Strict-Transport-Security':
         'max-age=31536000; includeSubDomains; preload',
     },
