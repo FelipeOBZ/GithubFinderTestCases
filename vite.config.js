@@ -5,7 +5,14 @@ export default defineConfig({
   server: {
     headers: {
       'Content-Security-Policy':
-        "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none';",
+        "default-src 'self' 'unsafe-inline'; " +
+        "script-src 'self' 'unsafe-inline'; " +
+        "style-src 'self' 'unsafe-inline'; " +
+        "img-src 'self' https://*.githubusercontent.com https://*.github.com; " +
+        "connect-src 'self' https://api.github.com; " +
+        "frame-src 'self' https://github.com; " +
+        "navigate-to 'self' https://github.com; " +
+        "object-src 'none';",
       'Strict-Transport-Security':
         'max-age=31536000; includeSubDomains; preload',
     },
