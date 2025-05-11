@@ -22,16 +22,13 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Instalar dependencias
-        run: npm install
+        run: npm ci
 
       - name: 🎭 Instalar Playwright (para tests e2e)
         run: npx playwright install --with-deps
 
       - name: 🚀 Iniciar servidor en segundo plano
-        run: npm run dev > vite.log 2>&1 &
-
-      - name: ⏱️ Esperar a que el servidor esté listo
-        run: npx wait-on http://localhost:5173
+        run: npm run dev &
 
       - name: 🧪 Ejecutar pruebas
         run: npm test
@@ -47,6 +44,4 @@ jobs:
         run: npm install -g vercel
 
       - name: 🚀 Desplegar en Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel --prod --yes
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
