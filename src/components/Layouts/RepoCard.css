@@ -1,0 +1,43 @@
+.repo-card {
+  height: 100%;
+}
+
+.repo-card .card {
+  height: 100%;
+}
+
+.repo-card .card-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.repo-card .card-title a:hover {
+  color: #3ABFF8;
+}
+
+.badge-watchers {
+  background-color: #3ABFF8;
+}
+
+.badge-stars {
+  background-color: #36D399;
+}
+
+.badge-issues {
+  background-color: #F87272;
+}
+
+.badge-forks {
+  background-color: #FBBD23;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.badge svg {
+  margin-right: 0.5rem;
+} 
